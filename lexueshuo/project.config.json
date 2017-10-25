@@ -8,8 +8,8 @@
 	},
 	"compileType": "weapp",
 	"libVersion": "1.5.4",
-	"appid": "wx188a89962b8fc17e",
-	"projectname": "%E4%B9%90%E5%AD%A6%E8%AF%B4",
+	"appid": "wxa8a5b849e0cb0684",
+	"projectname": "lexueshuo",
 	"condition": {
 		"weapp": {
 			"current": -1,

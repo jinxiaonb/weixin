@@ -1,4 +1,11 @@
 /**index.wxss**/
+.slide-image{
+  width: 100%;
+  
+}
+.container{
+  padding: 80px 0;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +25,22 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.btn-nav{
+  width: 80%;
+  margin: 0 auto;
+}
+.btn-nav navigator{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #dedede;
+  background-color: #11cd6e;
+  color: #fff;
+  margin-bottom: 30px;
+  border-radius: 4px;
 }

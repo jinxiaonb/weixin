@@ -1,13 +1,22 @@
 <!--index.wxml-->
+<swiper indicator-dots='{{indicatorDots}}' circular='{{circular}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+    <block wx:for="{{imgUrls}}">
+      <swiper-item><image src='{{item}}' class='slide-image'></image></swiper-item>
+    </block>
+  </swiper>
 <view class="container">
-  <view class="userinfo">
+  <view class='btn-nav'>
+    <view><navigator url='/pages/active/active' open-type='navigate'>用户</navigator></view>
+    <view><navigator url='/pages/apply/apply' open-type='redirect'>发布活动</navigator></view>
+  </view>
+  <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-  </view>
-  <view class="usermotto">
+  </view> -->
+  <!-- <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-  </view>
+  </view> -->
 </view>
