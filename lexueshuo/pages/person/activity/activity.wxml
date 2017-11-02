@@ -1,2 +1,7 @@
 <!--pages/person/activity/activity.wxml-->
 <text>pages/person/activity/activity.wxml</text>
+<view class='activity'>
+
+</view>
+
+<button type="primary" bindtap="modalcnt">取消</button>

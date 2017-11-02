@@ -1,1 +1,50 @@
 /* pages/person/person.wxss */
+.overflow{
+  overflow: hidden;
+}
+.f-left{
+  float: left;
+}
+.f-right{
+  float: right;
+}
+page{
+  background-color: #F0EFF5;
+}
+.avatar{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background-color:#cdcdcd;
+}
+.avatar image{
+  width: 192rpx;
+  height: 192rpx;
+  margin: 128rpx;
+  border-radius: 96rpx;
+}
+
+
+.item-list{
+  margin-top: 128rpx;
+  background-color: #fff;
+}
+.item-li{
+  position: relative;
+  height: 128rpx;
+  line-height: 128rpx;
+  border-bottom: 1px solid #dedede;
+  margin-left: 20rpx;
+  padding-right: 40rpx;
+
+}
+.item-li navigator{
+  height: 128rpx;
+}
+.item-li image{
+  position: relative;
+  width: 50rpx;
+  height: 50rpx;
+  top: 10rpx;
+  margin-right: 20rpx;
+}

@@ -7,7 +7,7 @@
 <view class="container">
   <view class='btn-nav'>
     <view><navigator url='/pages/active/active' open-type='navigate'>用户</navigator></view>
-    <view><navigator url='/pages/apply/apply' open-type='redirect'>发布活动</navigator></view>
+    <view><navigator url='/pages/apply/apply' open-type='navigate'>发布活动</navigator></view>
   </view>
   <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

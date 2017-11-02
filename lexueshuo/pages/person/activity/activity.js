@@ -62,5 +62,20 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  modalcnt: function () {
+    wx.showModal({
+      title: '是否取消此活动',
+      content: '确定将取消活动报名',
+      cancelText:'我再看看',
+      cancelColor:'#f00',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  } 
 })
