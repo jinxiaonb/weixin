@@ -14,55 +14,54 @@ App({
         //console.log(res.code);
         var appid = 'wx188a89962b8fc17e'; //填写微信小程序appid  
         var secret = 'c23bb500489156e2b5a36774d5a38be0'; //填写微信小程序secret
+        var self = this;
+        console.log(res);
+        if (res.code) {
+          var code = res.code;
+          wx.getUserInfo({//getUserInfo流程
+            success: function (res2) {//获取userinfo成功
+              //console.log(res2);
+              //var encryptedData = encodeURIComponent(res2.encryptedData);//一定要把加密串转成URI编码
+              var encryptedData = res2.encryptedData;
+              var iv = res2.iv;
+              wx.showToast({
+                title: '正在登录...',
+                icon: 'loading',
+                duration: 10000
+              });
+              //请求自己的服务器
+              wx.request({
+                url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=wxlogin',
+                data: {
+                  code: code,
+                  encryptedData: encryptedData,
+                  iv: iv
+                },
+                method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                header: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                }, // 设置请求的 header
+                success: function (res) {
+                  // success
+                  wx.hideToast();
+                  self.globalData.personInfo = res.data.userinfo;
+                  // console.log('服务器返回' + res.data);
+                  console.log(res);
+                },
+                fail: function () {
+                  // fail
+                  // wx.hideToast();
+                },
+                complete: function () {
+                  // complete
+                }
+              })
+            }
+          })
 
-        var code = res.code;
-        wx.getUserInfo({//getUserInfo流程
-          success: function (res2) {//获取userinfo成功
-            //console.log(res2);
-            var encryptedData = encodeURIComponent(res2.encryptedData);//一定要把加密串转成URI编码
-            var iv = res2.iv;
-            //请求自己的服务器
-            //Login(code, encryptedData, iv);
-            wx.request({
-              url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=wxlogin',
-              data: {
-                code: code,
-                encryptedData: encryptedData,
-                iv: iv
-              },
-              method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-              header: {
-                'content-type': 'application/json'
-              }, // 设置请求的 header
-              success: function (res) {
-                // success
-                //wx.hideToast();
-                console.log(res);
-
-              },
-              fail: function () {
-                // fail
-                // wx.hideToast();
-              },
-              complete: function () {
-                // complete
-              }
-            });
-          }
-        });
-
-        //调用request请求api转换登录凭证  
-        // wx.request({
-        //   //url: 'https://ssl.xt.cn?appid='+appid+'&secret='+secret+'&grant_type=authorization_code&js_code=' + res.code,
-        //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx188a89962b8fc17e&secret=c23bb500489156e2b5a36774d5a38be0&js_code=001hH56L07r2772aXW3L0lKN5L0hH56Y&grant_type=authorization_code',
-        //   header: {
-        //     'content-type': 'application/json'
-        //   },
-        //   success: function (res) {
-        //     console.log(res);
-        //     console.log(res.data.openid) //获取openid  
-        //   }
-        // })  
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
       }
     })
     // 获取用户信息
