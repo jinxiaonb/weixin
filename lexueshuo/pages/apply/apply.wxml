@@ -1,2 +1,7 @@
 <!--pages/apply/apply.wxml-->
-<text>pages/apply/apply.wxml</text>
+<view class='apply'>
+  <view wx:for="{{upload_picture_list}}" class='picture_item'>
+    <image mode='aspectFill' src='{{item.path}}'></image>
+  </view>
+  <image mode='aspectFill' src='../../images/bg.jpg' bindtap='uploadpic'></image>
+</view>

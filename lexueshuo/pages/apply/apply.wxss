@@ -1,1 +1,5 @@
 /* pages/apply/apply.wxss */
+.apply image{
+  width: 100px;
+  height: 100px;
+}
