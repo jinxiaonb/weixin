@@ -14,6 +14,29 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function imageUtil(e){
+  var imageSize = {};
+  var originalWidth = e.detail.width;
+  var originalHeight = e.detail.height;
+  var originalScale = originalHeight/originalWidth;
+  wx.getSystemInfo({
+    success: function(res) {
+      var windowWidth = res.windowWidth;
+      var windowHeight = res.windowHeight;
+      var windowscale = windowHeight/windowWidth;
+      if(originalScale < windowscale){
+        imageSize.imageWidth = windowWidth;
+        imageSize.imageHeight = (windowWidth * originalHeight)/originalWidth;
+      }else{
+        imageSize.imageHeight = windowHeight;
+        imageSize.imageWidth = (windowHeight * originalWidth)/originalHeight;
+      }
+    },
+  });
+  return imageSize;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  imageUtil:imageUtil
 }

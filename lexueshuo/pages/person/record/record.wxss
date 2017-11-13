@@ -1,1 +1,47 @@
 /* pages/person/record/record.wxss */
+.overflow{
+  overflow: hidden;
+}
+.f-left{
+  float: left;
+}
+.f-right{
+  float: right;
+}
+.avatar{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background-color:#cdcdcd;
+}
+.avatar image{
+  width: 192rpx;
+  height: 192rpx;
+  margin: 128rpx;
+  border-radius: 96rpx;
+}
+
+.title{
+  margin: 0 60rpx;
+  padding:60rpx 0 40rpx 0;
+  font-size: 24px;
+}
+.list{
+  margin: 0 60rpx;
+}
+.list-li{
+  border-bottom: 1px dashed #dedede;
+  padding: 16rpx;
+  color: #999;
+  font-size: 16px;
+}
+.list-li .activity{
+  margin-left: 16rpx;
+}
+.list-li .money{
+  color: #f00;
+}
+.list-li .unit{
+  font-size: 14px;
+  margin-left: 8rpx;
+}

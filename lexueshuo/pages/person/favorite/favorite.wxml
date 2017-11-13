@@ -1,2 +1,35 @@
 <!--pages/person/favorite/favorite.wxml-->
-<text>pages/person/favorite/favorite.wxml</text>
+
+<!-- favorite start-->
+<view class='favorite'>
+
+  <!--filter-list start-->
+  <view class='filter-list'>
+    <!--filter-content start-->
+    <view class='filter-content'>
+      <!--list start-->
+      <view class='list'>
+        <view id='111' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>标题</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{detail}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+      </view>
+
+      <view class='list'>
+        <view id='222' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>标题</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{detail}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+      </view>
+      <!--list end-->
+    </view>
+    <!--filter-content start-->
+  </view>
+
+  <view class='loadmore {{loadmoreflag == true ? "" :"hidden"}}'><image src='../../../images/loadmore.png'></image></view>
+  <!--filter-list end-->
+</view>
+<!--favorite end-->
+

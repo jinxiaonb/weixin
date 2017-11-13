@@ -8,3 +8,15 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.loadmore{
+  height: 128rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loadmore image{
+  width: 64rpx;
+  height: 64rpx;
+  margin: 32rpx 0;
+}

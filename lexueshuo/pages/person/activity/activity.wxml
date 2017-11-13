@@ -1,7 +1,85 @@
 <!--pages/person/activity/activity.wxml-->
-<text>pages/person/activity/activity.wxml</text>
-<view class='activity'>
-
+<view class='tabchange'>
+  <view bindtap='tab' class="{{tab1flag == true ? 'selected' : '' }}" id='tab1'>参与</view>
+  <view bindtap='tab' id='tab2' class="{{tab2flag == true ? 'selected' : ''}}">发布</view>
 </view>
 
-<button type="primary" bindtap="modalcnt">取消</button>
+<!--tab1 start-->
+<view id='c-tab1' wx:if='{{tab1flag}}'>
+
+  <!--filter-list start-->
+  <view class='filter-list'>
+    <!--filter-content start-->
+    <view class='filter-content'>
+      <!--list start-->
+      <view class='list'>
+        <view id='111' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>标题</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{detail}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+        
+        <view class='list-desc overflow' style='padding-left:{{imageleft}}px;padding-right:{{imageleft}}px;'>
+          <view class='f-left'><text>报名人数 15/20人</text></view>
+          <view class='f-right'><text bindtap='cancelActivity' class='cancel' data-id='111'>取消</text></view>
+        </view>
+      </view>
+
+      <view class='list'>
+        <view id='222' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>标题</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{detail}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+        
+        <view class='list-desc overflow' style='padding-left:{{imageleft}}px;padding-right:{{imageleft}}px;'>
+          <view class='f-left'><text>报名人数 15/20人</text></view>
+          <view class='f-right'><text bindtap='cancelActivity' class='cancel' data-id='111'>取消</text></view>
+        </view>
+      </view>
+      <!--list end-->
+    </view>
+    <!--filter-content start-->
+  </view>
+
+  <view class='loadmore {{loadmoreflag == true ? "" :"hidden"}}'><image src='../../../images/loadmore.png'></image></view>
+  <!--filter-list end-->
+</view>
+<!--tab end-->
+
+
+<view id='c-tab2' wx:if='{{tab2flag}}'>
+  <!--filter-list start-->
+  <view class='filter-list'>
+    <!--filter-content start-->
+    <view class='filter-content'>
+    
+      <!--list start-->
+      <view class='list'>
+        <view id='111' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>标题</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{detail}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+        <view class='list-desc overflow' style='padding-left:{{imageleft}}px;padding-right:{{imageleft}}px;'>
+          <view class='f-left'><text>报名人数 15/20人</text></view>
+          <view class='f-right'><text bindtap='editActivity' class='edit' data-id='111'>编辑</text><text bindtap='underActivity' class='cancel' data-id='111'>下架</text></view>
+        </view>
+      </view>
+      <view class='list'>
+        <view id='222' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>标题</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{detail}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+        <view class='list-desc overflow' style='padding-left:{{imageleft}}px;padding-right:{{imageleft}}px;'>
+          <view class='f-left'><text>报名人数 15/20人</text></view>
+          <view class='f-right'><text bindtap='editActivity' class='edit canEdit' data-id='222'>编辑</text><text bindtap='underActivity' class='cancel canCancel' data-id='222'>下架</text></view>
+        </view>
+      </view>
+        <!--list end-->
+    </view>
+    <!--filter-content start-->
+  </view>
+  <view class='loadmore {{loadmoreflag == true ? "" :"hidden"}}'><image src='../../../images/loadmore.png'></image></view>
+</view>

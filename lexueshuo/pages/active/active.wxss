@@ -1,1 +1,91 @@
 /* pages/active/active.wxss */
+.overflow{
+  overflow: hidden;
+}
+.hidden{
+  display: none;
+}
+.f-left{
+  float:left;
+}
+.f-right{
+  float: right;
+}
+.loadmore{
+  height: 128rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loadmore image{
+  width: 64rpx;
+  height: 64rpx;
+  margin: 32rpx 0;
+}
+.tabchange a{
+  display: inline-block;
+  width: 50%;
+  height: 2rem;
+  text-align: center;
+}
+.tabchange{
+  border: 1px solid #dedede;
+}
+.tabchange view{
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+}
+.tabchange view.selected{
+  color:#f00;
+  border-bottom: 4px solid #f00;
+}
+
+.filter-img{
+  width: 100%;
+  margin-top: 5%;
+}
+.filter-sec{
+  margin-left: 5%;
+  margin-right: 5%;
+  display: inline-block;
+  width: 15%;
+}
+.filter-img image{
+  width: 60px;
+  height: 60px;
+}
+.filter-title{
+  font-size: 14px;
+  text-align: center;
+}
+
+.filter-list{
+  font-size: 16px;
+  margin-top: 30px;
+}
+.list{
+  width: 90%;
+  margin: 30px auto;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.list-title,.list-detail{
+  height: 50px;
+  line-height: 50px;
+}
+.gt{
+  color: #ccc;
+}
+.ticket{
+  color: #f00;
+  margin-right: 16rpx;
+  font-size: 16px;
+}
+.list-img{
+  border-bottom: 1px solid #dedede;
+  padding: 10px 0;
+}

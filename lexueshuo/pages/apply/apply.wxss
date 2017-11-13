@@ -1,5 +1,98 @@
 /* pages/apply/apply.wxss */
-.apply image{
-  width: 100px;
-  height: 100px;
+.overflow{
+  overflow: hidden;
+}
+.hidden{
+  display: none;
+}
+.f-left{
+  float:left;
+}
+.f-right{
+  float: right;
+}
+.dateDesc{
+  display: inline-block;
+}
+picker{
+  display: inline-block;
+}
+
+.img view{
+  display: inline-block;
+  padding-right: 32rpx;
+  padding-left: 32rpx;
+  margin-bottom: 48rpx;
+}
+.img image{
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.filter-img{
+  width: 100%;
+  margin-top: 5%;
+}
+.filter-sec{
+  margin-left: 5%;
+  margin-right: 5%;
+  display: inline-block;
+  width: 15%;
+}
+.filter-sec:first-child{
+  margin-left: 0;
+}
+.filter-sec.selected{
+  color: #f00;
+}
+.filter-img image{
+  width: 60px;
+  height: 60px;
+}
+.filter-title{
+  font-size: 14px;
+  text-align: center;
+}
+.title{
+  background-color: #f2f2f2;
+  color: #666;
+  height: 50px;
+  line-height: 50px;
+  padding:0 16px;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+}
+.cmn{
+  padding:16px 16px;
+}
+.cmn text{
+  margin-right:32rpx;
+}
+.cmn picker{
+  margin-right: 64rpx;
+}
+.picker{
+  color: #999;
+}
+textarea{
+  height: 80px;
+}
+.tel{
+  display: inline-block;
+  width: 85%;
+}
+.needrmb{
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #dedede;
+}
+.rmb{
+  width: 50px;
+}
+.rmb text{
+  margin-right: 0rpx;
+}
+.money{
+  width: 30px;
+  display: inline-block;
 }

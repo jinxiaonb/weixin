@@ -28,7 +28,7 @@
 }
 
 .btn-nav{
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 .btn-nav navigator{
@@ -39,8 +39,12 @@
   display: inline-block;
   text-align: center;
   border: 1px solid #dedede;
-  background-color: #11cd6e;
-  color: #fff;
-  margin-bottom: 30px;
+  background-color: #dedede;
+  color: #999;
+  margin-bottom: 50px;
   border-radius: 4px;
+}
+.btn-nav navigator.findactivity{
+  background-color: #4990e2;
+  color: #fff;
 }

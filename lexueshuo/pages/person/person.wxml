@@ -7,19 +7,19 @@
   <view class='item-list'>
     <view class='item-li overflow'>
       <navigator url='/pages/person/favorite/favorite' open-type='navigate'>
-      <view class='f-left'><image src='../../images/person.png'></image><text>我的收藏</text></view>
+      <view class='f-left'><image src='../../images/mycollection.png'></image><text>我的收藏</text></view>
       <view class='f-right'><text>{{gt}}</text></view>
       </navigator>
     </view>
     <view class='item-li overflow'>
       <navigator url='/pages/person/activity/activity' open-type='navigate'>
-      <view class='f-left'><image src='../../images/person.png'></image><text>我的活动</text></view>
+      <view class='f-left'><image src='../../images/myactivity.png'></image><text>我的活动</text></view>
       <view class='f-right'><text>{{gt}}</text></view>
       </navigator>
     </view>
     <view class='item-li overflow'>
       <navigator url='/pages/person/record/record' open-type='navigate'>
-      <view class='f-left'><image src='../../images/person.png'></image><text>金额纪录</text></view>
+      <view class='f-left'><image src='../../images/mywallet.png'></image><text>金额纪录</text></view>
       <view class='f-right'><text>{{gt}}</text></view>
       </navigator>
     </view>

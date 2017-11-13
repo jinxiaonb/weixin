@@ -23,8 +23,6 @@ page{
   margin: 128rpx;
   border-radius: 96rpx;
 }
-
-
 .item-list{
   margin-top: 128rpx;
   background-color: #fff;

@@ -1,2 +1,38 @@
 <!--pages/details/details.wxml-->
-<text>pages/details/details.wxml</text>
+<view class='detail'>
+  <view class='topimg'>
+    <image src='{{topimg}}' alt=''></image>
+  </view>
+
+  <view class='c'>
+    <view class='title'><text>合乎你天性的生活</text></view>
+    <view class='favirate overflow'><image src='{{collect.flag?collect.imgSelected:collect.img}}' bindtap='collectActivity'></image></view>
+    <view class='intro'>
+      <!--活动简介start-->
+      <view class='list'>
+        <view class='list-li'><image src='../../images/activitytime.png'></image><text>2017-11-10</text></view>
+        <view class='list-li'><image src='../../images/activitytime.png'></image><text>2017-11-11 12:00</text><text>至</text><text>2017-11-11 14:00</text></view>
+        <view class='list-li'><image src='../../images/activityposition.png'></image><text>浙江杭州下城区中山北路611号 新通乐学城</text></view>
+        <view class='list-li'><image src='../../images/activityactor.png'></image><text>已报名22人/最少报名人数20人</text></view>
+        <view class='list-li'><image src='../../images/activityticket.png'></image><text>¥0-50</text></view>
+      </view>
+      <!--活动简介end-->
+      <!--内容start-->
+      <view class='desc'>
+        <view class='c-desc'>就疯狂的撒雷锋精神多了咖啡机放声大哭雷锋精神多啦发生的。带饭卡的髋关节阿斯利康地方，富士康大家发拉萨的感觉。</view>
+        <view class='c-image'>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+          <view class='list-image'><image src='{{topimg}}'></image></view>
+        </view>
+      </view>
+      <!--内容end-->
+    </view>
+  </view>
+  <view class='bottom'><button>活动报名</button></view>
+</view>

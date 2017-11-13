@@ -1,2 +1,27 @@
 <!--pages/person/record/record.wxml-->
-<text>pages/person/record/record.wxml</text>
+<view class='record'>
+  <view class=''>
+    <view class='avatar'><image src='{{userInfo.avatarUrl}}'></image></view>
+  </view>
+
+  <view class='content'>
+    <view class='title'><text>记录</text></view>
+    <!-- list start -->
+    <view class='list'>
+      <!-- list content start -->
+      <view class='list-li overflow'>
+        <view class='f-left'><text class='date'>2017/11/11</text><text class='activity'>活动名称</text></view>
+        <view class='f-right'><text class='money'>+111</text><text class='unit'>元整</text></view>
+      </view>
+      <!-- list content end -->
+
+      <!-- list content start -->
+      <view class='list-li overflow'>
+        <view class='f-left'><text class='date'>2017/11/11</text><text class='activity'>活动名称</text></view>
+        <view class='f-right'><text class='money'>-111</text><text class='unit'>元整</text></view>
+      </view>
+      <!-- list content end -->
+    </view>
+    <!-- list end -->
+  </view>
+</view>

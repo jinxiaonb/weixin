@@ -1,2 +1,71 @@
 <!--pages/active/active.wxml-->
-<text>pages/active/active.wxml</text>
+<view class='tabchange'>
+  <view bindtap='tab' class="{{tab1flag == true ? 'selected' : '' }}" id='tab1'>免费</view>
+  <view bindtap='tab' id='tab2' class="{{tab2flag == true ? 'selected' : ''}}">收费</view>
+</view>
+
+<!--tab1 start-->
+<view id='c-tab1' wx:if='{{tab1flag}}'>
+
+  <view class='filter-img'>
+    <view class='filter-sec' wx:for="{{freeImgUrls}}" wx:for-item="item">
+      <view class='filter-img' data-val="{{index}}" data-desc="{{item.text}}" bindtap='freeFilter'>
+        <image mode='aspectFit' src='{{item.flag ? item.imgSelected : item.img}}'></image>
+      </view>
+      <view class='filter-title'>{{item.text}}</view>
+    </view>
+  </view>
+
+  <!--filter-list start-->
+  <view class='filter-list'>
+    <!--filter-content start-->
+    <view class='filter-content'>
+      <!--list start-->
+      <view wx:for="{{freeList}}" wx:for-item="item">
+        <view class='list' id='{{item.id}}' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>{{item.title}}</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{item.img}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><text class='f-left'>查看详情</text><text class='f-right gt'>{{char_gt}}</text></view>
+        </view>
+      </view>
+      <!--list end-->
+    </view>
+    <!--filter-content start-->
+  </view>
+
+  <view class='loadmore {{loadmoreflag == true ? "" :"hidden"}}'><image src='../../images/loadmore.png'></image></view>
+  <!--filter-list end-->
+</view>
+<!-- tab1 end -->
+
+<!-- tab2 start -->
+<view id='c-tab2' wx:if='{{tab2flag}}'>
+<view class='filter-img'>
+    <view class='filter-sec' wx:for="{{chargesImgUrls}}" wx:for-item="item">
+      <view class='filter-img' data-val="{{index}}" data-desc="{{item.text}}" bindtap='chargesFilter'>
+        <image mode='aspectFit' src='{{item.flag ? item.imgSelected : item.img}}'></image>
+      </view>
+      <view class='filter-title'>{{item.text}}</view>
+    </view>
+  </view>
+
+  <!--filter-list start-->
+  <view class='filter-list'>
+    <!--filter-content start-->
+    <view class='filter-content'>
+      <!--list start-->
+      <view wx:for="{{nofreeList}}" wx:for-item="item">
+        <view class='list' id='{{item.ACT_ID}}' bindtap='activedetail'>
+          <view class='list-title' style='margin-left:{{imageleft}}px'><text>{{item.ACT_TITLE}}</text></view>
+          <view class='list-img'><image mode='aspectFit' style='margin-left:{{imageleft}}px;width:{{imagewidth}}px;height:{{imageheight}}px' bindload='imageLoad' src='{{item.ACT_THUMBNAIL}}'></image></view>
+          <view class='list-detail overflow' style='margin-left:{{imageleft}}px;margin-right:{{imageleft}}px;'><view class='f-left'><text>查看详情</text></view><view class='f-right'><text class='ticket'>活动门票:¥{{item.ACT_MONEY}}</text><text class='gt'>{{char_gt}}</text></view></view>
+        </view>
+      </view>
+      <!--list end-->
+    </view>
+    <!--filter-content start-->
+  </view>
+
+  <view class='loadmore {{loadmoreflag == true ? "" :"hidden"}}'><image src='../../images/loadmore.png'></image></view>
+</view>
+<!-- tab2 end -->

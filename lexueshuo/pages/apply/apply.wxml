@@ -1,7 +1,80 @@
 <!--pages/apply/apply.wxml-->
 <view class='apply'>
-  <view wx:for="{{upload_picture_list}}" class='picture_item'>
-    <image mode='aspectFill' src='{{item.path}}'></image>
+<form bindsubmit='formsubmit'>
+  <view class='title'><text>主题</text></view>
+  <view class='cmn'><input type='text' name="title" value='demo1' placeholder='限制35个字符' /></view>
+  <view class='title'><text>头像添加(限制一张)</text></view>
+  <view class='img cmn'>
+    <image src='{{img}}' bindtap='uploadpic' name="thumbnail" bindlongtap='wxbgdelimage' style='width:80px;height:80px;'></image>
   </view>
-  <image mode='aspectFill' src='../../images/bg.jpg' bindtap='uploadpic'></image>
+  <view class='title'><text>参加活动人数(10人起)</text></view>
+  <view class='number cmn'><input type='number' name="avails" value='15' placeholder='请输入最少参加该活动的人数'></input></view>
+  <view class='title'><text>截止报名时间</text></view>
+  <view class='regendDate cmn'>
+    <picker mode="date" value="{{regenddate}}" name="signendate" start="2017-09-01" end="2020-09-01" bindchange="bindRegendDateChange">
+    <view class="picker">{{regenddate}}</view>
+    </picker>
+    <picker mode="time" value="{{regendtime}}" name="signedtime" start="00:00" end="23:59" bindchange="bindRegendTimeChange">
+      <view class="picker">{{regendtime}}</view>
+    </picker>
+  </view>
+  <view class='title'><text>活动时间</text></view>
+  <view class='startDate cmn'>
+    <view class='dateDesc'><text>开始时间</text></view>
+    <picker mode="date" value="{{startdate}}" name="startyear" start="2017-09-01" end="2020-09-01" bindchange="bindStartDateChange">
+    <view class="picker">{{startdate}}</view>
+    </picker>
+    <picker mode="time" value="{{starttime}}" name="startime" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+      <view class="picker">{{starttime}}</view>
+    </picker>
+  </view>
+  <view class='endDate cmn'>
+    <view class='dateDesc'><text>结束时间</text></view>
+    <picker mode="date" value="{{enddate}}" name="endyear" start="2017-09-01" end="2020-09-01" bindchange="bindEndDateChange">
+    <view class="picker">{{enddate}}</view>
+    </picker>
+    <picker mode="time" value="{{endtime}}" name="endtime" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+      <view class="picker">{{endtime}}</view>
+    </picker>
+  </view>
+  <view class='title'>演讲嘉宾</view>
+  <view class='username cmn'><input type='text' name="lecturer" value='金霄' class='' placeholder='姓名'></input></view>
+  <view class='title'><text>联系方式</text></view>
+  <view class='phone cmn overflow'><text class='f-left'>+86</text><input type='number' class='tel f-right' name="contact" value="15158133856" placeholder='请填写手机号码'></input></view>
+  <view class='title'><text>活动内容</text></view>
+  <view class='desc cmn'><textarea name="desc" value='简介' placeholder='简介（100字左右）'></textarea></view>
+  <view class='title'><text>图片添加</text></view>
+  <view class='img cmn'>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+      <view><image src='{{img}}'></image></view>
+  </view>
+  <view class='title'><text>是否收费</text></view>
+  <view class='fee cmn'>
+    <view class='overflow'>
+      <view class='f-left'><text>免费</text></view>
+      <view class='f-right'><switch name="isswitch" bindchange='moneychange'></switch></view></view>
+    <view class='overflow needrmb'>
+      <view class='f-left'><text>收费</text></view>
+      <view class='f-right overflow rmb'><text class='f-left'>¥</text><input type='digit' class='money f-right' name="price"  value='10'></input></view>
+    </view>
+  </view>
+  <view class='title'><text>标签类别</text></view>
+  <view class='filter-img cmn'>
+    <view class='filter-sec' wx:for="{{imgUrls}}" wx:for-item="item">
+      <view class='filter-img {{item.flag?"selected":""}}'  bindtap='markChoise{{index}}'>
+        <image mode='aspectFit' name="tags" src='{{item.flag ? item.imgSelected : item.img}}'></image>
+      </view>
+      <view class='filter-title'>{{item.text}}</view>
+    </view>
+  </view>
+  <view><button formType='submit'>预览</button></view>
+  </form>
 </view>
+

@@ -1,1 +1,77 @@
 /* pages/details/details.wxss */
+.overflow{
+  overflow: hidden;
+}
+.topimg{
+  width: 100%;
+}
+.topimg image{
+  width: 750rpx;
+}
+
+.favirate image,.list image{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.title{
+  font-size: 24px;
+  padding: 60rpx;
+}
+.favirate image{
+  width: 60rpx;
+  height: 60rpx;
+  float: right;
+  margin-right: 60rpx;
+}
+
+.intro{
+  padding-top: 60rpx;
+}
+.list{
+  border-top: 1px dashed #dedede;
+  margin: 0 30rpx;
+}
+.list-li{
+  position: relative;
+  border-bottom: 1px dashed #dedede;
+  font-size: 15px;
+  padding: 16rpx;
+}
+.list-li image{
+  position: relative;
+  margin-right: 16rpx;
+  top: 6rpx;
+}
+.list-li text{
+  position: relative;
+  top: -4rpx;
+}
+
+.desc{
+  margin: 60rpx 30rpx 128rpx 30rpx;
+}
+.c-desc{
+  text-indent: 2em;
+  line-height: 60rpx;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30rpx;
+}
+
+.list-image image{
+  width: 690rpx;
+  margin-bottom: 60rpx;
+}
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height: 128rpx;
+}
+.bottom button{
+  height: 128rpx;
+  line-height: 128rpx;
+  border-radius: 0;
+}

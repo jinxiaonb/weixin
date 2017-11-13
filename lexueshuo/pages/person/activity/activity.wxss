@@ -1,1 +1,103 @@
 /* pages/person/activity/activity.wxss */
+.overflow{
+  overflow: hidden;
+}
+.hidden{
+  display: none;
+}
+.f-left{
+  float:left;
+}
+.f-right{
+  float: right;
+}
+
+.tabchange a{
+  display: inline-block;
+  width: 50%;
+  height: 2rem;
+  text-align: center;
+}
+.tabchange{
+  border: 1px solid #dedede;
+}
+.tabchange view{
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+}
+.tabchange view.selected{
+  color:#f00;
+  border-bottom: 4px solid #f00;
+}
+
+.filter-img{
+  width: 100%;
+  margin-top: 5%;
+}
+.filter-sec{
+  margin-left: 5%;
+  margin-right: 5%;
+  display: inline-block;
+  width: 15%;
+}
+.filter-img image{
+  width: 60px;
+  height: 60px;
+}
+.filter-title{
+  font-size: 14px;
+  text-align: center;
+}
+
+.filter-list{
+  font-size: 16px;
+  margin-top: 30px;
+}
+.list{
+  width: 90%;
+  margin: 30px auto;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.list-title,.list-detail{
+  height: 128rpx;
+  line-height: 128rpx;
+}
+.list-desc{
+  height: 128rpx;
+  line-height: 128rpx;
+  border-top: 1px solid #dedede;
+  font-size: 14px;
+}
+.edit{
+  padding: 10rpx 30rpx;
+  margin-right: 30rpx;
+  color: #4990e2;
+  border: 1px solid #4990e2;
+  border-radius: 4px;
+}
+.canEdit{
+  background-color: #4990e2;
+  color: #fff;
+}
+.cancel{
+  padding: 10rpx 30rpx;
+  color: #dedede;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.canCancel{
+  background-color: #ccc;
+  color: #f2f2f2;
+}
+.gt{
+  color: #ccc;
+}
+.list-img{
+  border-bottom: 1px solid #dedede;
+  padding: 10px 0;
+}
