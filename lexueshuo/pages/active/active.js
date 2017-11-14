@@ -69,12 +69,12 @@ Page({
       money: "350"
     }],
     chargesImgUrls: [{
-      flag: false,
+      flag: true,
       img: "../../images/life.png",
       imgSelected: "../../images/lifeactive.png",
       text: "生活"
     }, {
-      flag: true,
+      flag: false,
       img: "../../images/education.png",
       imgSelected: "../../images/educationactive.png",
       text: "教育"
@@ -104,7 +104,7 @@ Page({
     wx.request({
       url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=getactlist',
       data: {
-        isfree: 0  //1免费，2收费
+        isfree: 1  //1免费，0收费
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
@@ -113,6 +113,7 @@ Page({
       success: function (res) {
         // success
         // console.log('服务器返回' + res.data);
+        console.log(res.data);
         that.setData({
           nofreeList: res.data.list
         });
@@ -131,7 +132,7 @@ Page({
     wx.request({
       url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=getactlist',
       data: {
-        isfree: 0  //1免费，2收费
+        isfree: 0  //1免费，0收费
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
@@ -228,6 +229,38 @@ Page({
       url: '/pages/details/details?act_id='+event.currentTarget.id,
     });
   },
+  setFreeLife:function(flag){
+    this.setData({
+      'freeImgUrls[0].flag': !flag,
+      'freeImgUrls[1].flag': false,
+      'freeImgUrls[2].flag': false,
+      'freeImgUrls[3].flag': false
+    });
+  },
+  setFreeEducation:function(flag){
+    this.setData({
+      'freeImgUrls[1].flag': !flag,
+      'freeImgUrls[0].flag': false,
+      'freeImgUrls[2].flag': false,
+      'freeImgUrls[3].flag': false,
+    });
+  },
+  setFreeJob:function(flag){
+    this.setData({
+      'freeImgUrls[2].flag': !flag,
+      'freeImgUrls[0].flag': false,
+      'freeImgUrls[1].flag': false,
+      'freeImgUrls[3].flag': false
+    });
+  },
+  setFreeFinance:function(flag){
+    this.setData({
+      'freeImgUrls[3].flag': !flag,
+      'freeImgUrls[0].flag': false,
+      'freeImgUrls[1].flag': false,
+      'freeImgUrls[2].flag': false
+    });
+  },
   freeFilter:function(e){//免费筛选
     console.log(e);
     var desc = e.currentTarget.dataset.desc,
@@ -237,40 +270,52 @@ Page({
     if(val == "0"){
       var flag = this.data.freeImgUrls[0].flag;
       if(flag) return false;
-      this.setData({
-        'freeImgUrls[0].flag': !flag,
-        'freeImgUrls[1].flag': false,
-        'freeImgUrls[2].flag': false,
-        'freeImgUrls[3].flag': false
-      });
+      this.setFreeLife(flag);
     }else if(val == "1"){
       var flag = this.data.freeImgUrls[1].flag;
       if (flag) return false;
-      this.setData({
-        'freeImgUrls[1].flag': !flag,
-        'freeImgUrls[0].flag': false,
-        'freeImgUrls[2].flag': false,
-        'freeImgUrls[3].flag': false,
-      });
+      this.setFreeEducation(flag);
     }else if(val == "2"){
       var flag = this.data.freeImgUrls[2].flag;
       if (flag) return false;
-      this.setData({
-        'freeImgUrls[2].flag': !flag,
-        'freeImgUrls[0].flag': false,
-        'freeImgUrls[1].flag': false,
-        'freeImgUrls[3].flag': false
-      });
+      this.setFreeJob(flag);
     }else if(val == "3"){
       var flag = this.data.freeImgUrls[3].flag;
       if (flag) return false;
-      this.setData({
-        'freeImgUrls[3].flag': !flag,
-        'freeImgUrls[0].flag': false,
-        'freeImgUrls[1].flag': false,
-        'freeImgUrls[2].flag': false
-      });
+      this.setFreeFinance(flag);
     }
+  },
+  setNoFreeLife: function (flag) {
+    this.setData({
+      'chargesImgUrls[0].flag': !flag,
+      'chargesImgUrls[1].flag': false,
+      'chargesImgUrls[2].flag': false,
+      'chargesImgUrls[3].flag': false
+    });
+  },
+  setNoFreeEducation: function (flag) {
+    this.setData({
+      'chargesImgUrls[1].flag': !flag,
+      'chargesImgUrls[0].flag': false,
+      'chargesImgUrls[2].flag': false,
+      'chargesImgUrls[3].flag': false,
+    });
+  },
+  setNoFreeJob: function (flag) {
+    this.setData({
+      'chargesImgUrls[2].flag': !flag,
+      'chargesImgUrls[0].flag': false,
+      'chargesImgUrls[1].flag': false,
+      'chargesImgUrls[3].flag': false
+    });
+  },
+  setNoFreeFinance: function (flag) {
+    this.setData({
+      'chargesImgUrls[3].flag': !flag,
+      'chargesImgUrls[0].flag': false,
+      'chargesImgUrls[1].flag': false,
+      'chargesImgUrls[2].flag': false
+    });
   },
   chargesFilter: function (e) {//收费筛选
     console.log(e);
@@ -281,39 +326,19 @@ Page({
     if (val == "0") {
       var flag = this.data.chargesImgUrls[0].flag;
       if (flag) return false;
-      this.setData({
-        'chargesImgUrls[0].flag': !flag,
-        'chargesImgUrls[1].flag': false,
-        'chargesImgUrls[2].flag': false,
-        'chargesImgUrls[3].flag': false
-      });
+      this.setNoFreeLife(flag);
     } else if (val == "1") {
       var flag = this.data.chargesImgUrls[1].flag;
       if (flag) return false;
-      this.setData({
-        'chargesImgUrls[1].flag': !flag,
-        'chargesImgUrls[0].flag': false,
-        'chargesImgUrls[2].flag': false,
-        'chargesImgUrls[3].flag': false,
-      });
+      this.setNoFreeEducation(flag);
     } else if (val == "2") {
       var flag = this.data.chargesImgUrls[2].flag;
       if (flag) return false;
-      this.setData({
-        'chargesImgUrls[2].flag': !flag,
-        'chargesImgUrls[0].flag': false,
-        'chargesImgUrls[1].flag': false,
-        'chargesImgUrls[3].flag': false
-      });
+      this.setNoFreeJob(flag);
     } else if (val == "3") {
       var flag = this.data.chargesImgUrls[3].flag;
       if (flag) return false;
-      this.setData({
-        'chargesImgUrls[3].flag': !flag,
-        'chargesImgUrls[0].flag': false,
-        'chargesImgUrls[1].flag': false,
-        'chargesImgUrls[2].flag': false
-      });
+      this.setNoFreeFinance(flag);
     }
   }
 })
