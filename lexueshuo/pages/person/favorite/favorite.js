@@ -14,14 +14,48 @@ Page({
     imagewidth: 0,//居中图片大小初始化宽度
     imageheight: 0,
     imageleft: 0,//左边偏移量
-    loadmoreflag: false
+    loadmoreflag: false,
+    favList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (app.globalData.personInfo) {
+      this.setData({
+        personinfo: app.globalData.personInfo
+      });
+    }
+    this.getFavList();
+  },
+  getFavList:function(){
+    var that = this;
+    wx.request({
+      url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=myfavor',
+      data: {
+        openid: that.data.personinfo.openId
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }, // 设置请求的 header
+      success: function (res) {
+        // success
+        // console.log('服务器返回' + res.data);
+        that.setData({
+          favList: res.data.list
+        });
+
+        console.log(res.data);
+      },
+      fail: function () {
+        // fail
+        // wx.hideToast();
+      }, complete: function () {
+        // complete
+      }
+    });
   },
   imageLoad: function (e) {
     var imageSize = imageUtil.imageUtil(e);

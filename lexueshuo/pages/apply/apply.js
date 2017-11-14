@@ -253,7 +253,7 @@ Page({
           //wx.hideToast();
           //self.globalData.personInfo = res.data.userinfo;
           // console.log('服务器返回' + res.data);
-          console.log(res);
+          console.log(res.data);
         },
         fail: function () {
           // fail
@@ -284,7 +284,10 @@ Page({
         wx.uploadFile({
           url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=imageupload',
           filePath: tempFilePaths[0],
-          name: 'file',
+          name: 'file', 
+          formData: {
+            'openid': that.data.personinfo.openId
+          },
           success: function (res) {
             console.log(res)
             //var data = JSON.parse(res.data);

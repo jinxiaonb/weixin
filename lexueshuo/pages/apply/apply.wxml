@@ -5,7 +5,7 @@
   <view class='cmn'><input type='text' name="title" value='demo1' placeholder='限制35个字符' /></view>
   <view class='title'><text>头像添加(限制一张)</text></view>
   <view class='img cmn'>
-    <image src='{{img}}' bindtap='uploadpic' name="thumbnail" bindlongtap='wxbgdelimage' style='width:80px;height:80px;'></image>
+    <image src='{{img}}' bindtap='uploadpic' name="thumbnail"  style='width:80px;height:80px;'></image>
   </view>
   <view class='title'><text>参加活动人数(10人起)</text></view>
   <view class='number cmn'><input type='number' name="avails" value='15' placeholder='请输入最少参加该活动的人数'></input></view>

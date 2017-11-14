@@ -43,7 +43,7 @@ App({
                   wx.hideToast();
                   self.globalData.personInfo = res.data.userinfo;
                   // console.log('服务器返回' + res.data);
-                  //console.log(res);
+                  console.log(res);
                 },
                 fail: function () {
                   // fail
