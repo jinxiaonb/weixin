@@ -34,5 +34,5 @@
       <!--内容end-->
     </view>
   </view>
-  <view class='bottom'><button>活动报名</button></view>
+  <view class='bottom'><button bindtap='activityEvent'>活动报名</button></view>
 </view>

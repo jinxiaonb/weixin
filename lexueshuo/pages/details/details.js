@@ -156,5 +156,33 @@ Page({
         })
       }
     });
+  },
+  activityEvent:function(){
+    var that = this;
+
+    wx.request({
+      url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=wxpay',
+      data: {
+        fee:'1',  //
+        openid: that.data.personinfo.openId,
+        desc:'商品描述'
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }, // 设置请求的 header
+      success: function (res) {
+        // success
+        // console.log('服务器返回' + res.data);
+
+        console.log(res.data);
+      },
+      fail: function () {
+        // fail
+        // wx.hideToast();
+      }, complete: function () {
+        // complete
+      }
+    });
   }
 })

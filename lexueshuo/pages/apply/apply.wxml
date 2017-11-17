@@ -45,15 +45,7 @@
   <view class='desc cmn'><textarea name="desc" value='简介' placeholder='简介（100字左右）'></textarea></view>
   <view class='title'><text>图片添加</text></view>
   <view class='img cmn'>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
-      <view><image src='{{img}}'></image></view>
+      <view wx:for="{{contentList}}" wx:for-item="item"><image src='{{item.path}}' bindtap='contentImgUpload'></image></view>
   </view>
   <view class='title'><text>是否收费</text></view>
   <view class='fee cmn'>

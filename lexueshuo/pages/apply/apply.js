@@ -15,6 +15,9 @@ Page({
     enddate:"2017-09-13",
     starttime:"11:12",
     endtime:"11:14",
+    contentList:[{
+      path:"../../images/selection.png"
+    }],
     markflag:{flag0:true,flag1:true,flag2:false,flag3:false},
     imgUrls: [{
       flag:true,
@@ -294,6 +297,56 @@ Page({
             //console.log(data);
           }
         })
+      }
+    });
+  },
+  contentImgUpload:function(e){
+    var that = this;
+    //var contentList = that.data.contentList;
+    wx.chooseImage({
+      count: 9,
+      success: function (res) {
+        var contentList = res.tempFilePaths;
+        console.log(contentList);
+        // that.setData({
+        //   contentList:contentList
+        // });
+        for(var i=0;i<contentList.length;i++){
+          (function(i){
+            console.log(contentList[i]);
+              wx.uploadFile({
+              url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=imageupload',
+              filePath: contentList[i],
+              name: 'file',
+              formData: {
+                'openid': that.data.personinfo.openId
+              },
+              success: function (res) {
+                //console.log(res.data)
+                var data = JSON.parse(res.data);
+                console.log(data);
+              }
+            })
+          })(i);
+        }
+        //upload_picture_list.push(tempFiles[0]);
+        // that.setData({
+        //   upload_picture_list:upload_picture_list
+        // });
+        //console.log(that.data.upload_picture_list);
+        // wx.uploadFile({
+        //   url: 'https://ssl.xt.cn/lexue/lexue.ajax.php?action=imageupload',
+        //   filePath: tempFilePaths[0],
+        //   name: 'file',
+        //   formData: {
+        //     'openid': that.data.personinfo.openId
+        //   },
+        //   success: function (res) {
+        //     console.log(res)
+        //     //var data = JSON.parse(res.data);
+        //     //console.log(data);
+        //   }
+        // })
       }
     });
   }
